@@ -36,13 +36,17 @@ def get_ques():
         values = get_Value(city)
 
         if (sheet.cell(row = i+1, column = 4).value) == 'C':
-          
+          sheet.cell(row = i+1, column = 2).value =  values[2]
+          sheet.cell(row = i+1, column = 3).value =  values[1]
+          wb_obj.save("D:\Programming\Python\Projects\Live Weather Monitor\Values.xlsx") 
           print(f'Loc: {values[0]}')
           print(f'Humidity: {values[1]}')
           print(f'Temp: {values[2]} C')
         
         else:
-          
+          sheet.cell(row = i+1, column = 2).value =  toFah(values[2])
+          sheet.cell(row = i+1, column = 3).value =  values[1]
+          wb_obj.save("D:\Programming\Python\Projects\Live Weather Monitor\Values.xlsx") 
           print(f'Loc: {values[0]}')
           print(f'Humidity: {values[1]}')
           print(f'Temp: {toFah(values[2])} F')
@@ -50,4 +54,6 @@ def get_ques():
       time.sleep(1)
     initial = False
 
-get_ques()
+
+if __name__ == "__main__":
+    get_ques()
