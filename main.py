@@ -1,11 +1,23 @@
 # coding: utf-8
+
+# Response that I get when I try to make bulk call
+# {"success":false,"error":
+# {"code":604,"type":"bulk_queries_not_supported_on_plan",
+# "info":"Your current subscription plan does not support bulk queries.
+#  Please upgrade your account to use this feature."}}
+
 import requests
 from pathlib import Path
-import openpyxl, os,sys, time
+import openpyxl, time , _thread
 
 def toFah(cel):
   # print(f'B:{cel}')
   return (cel*9//5)+32
+
+def terminator(flag):
+  input()
+  print("The System will terminate shortly. Thank You!!")
+  flag.append(False)
 
 def get_Value(loc):
   __params = {
@@ -27,10 +39,13 @@ def get_ques():
   sheet = wb_obj.active
   initial = True
   n = sheet.max_row
-  while True:
+
+  flag =[]
+  _thread.start_new_thread(terminator, (flag,))
+  while not flag:
     for i in range(1, n):
 
-      if (sheet.cell(row = i+1, column = 5).value) == 1 or initial:
+      if ((sheet.cell(row = i+1, column = 5).value) == 1 or initial) and not flag:
 
         city = sheet.cell(row = i+1, column = 1).value
         values = get_Value(city)
@@ -53,6 +68,7 @@ def get_ques():
 
       time.sleep(1)
     initial = False
+    
 
 
 if __name__ == "__main__":
