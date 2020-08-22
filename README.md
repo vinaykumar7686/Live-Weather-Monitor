@@ -17,6 +17,6 @@ This application is a live weather displaying application using APIs and excel t
 ### How to Run?
 
 - Install Clone the Repository
-- Install Reqiuirements.txt by typing "pip install -r Requirements.txt" into Command Prompt in working Directory.
+- Install requirements.txt by typing "pip install -r requirements.txt" into Command Prompt in working Directory.
 - Edit the values of Cities, Units and Update(0/1) colulmns in the Values.xlsx file as required.
 - Run the file main.py.
