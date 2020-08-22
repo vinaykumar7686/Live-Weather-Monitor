@@ -64,7 +64,7 @@ def main():
 
   '''
 
-  xlsx_file = Path('D:\Programming\Python\Projects\Live Weather Monitor\Values.xlsx')
+  xlsx_file = Path('Values.xlsx')
   wb_obj = openpyxl.load_workbook(xlsx_file) 
   sheet = wb_obj.active
 
@@ -107,7 +107,7 @@ def main():
           # Update Temperature
           sheet.cell(row = i+1, column = 2).value =  values[2]
           # Save to file
-          wb_obj.save("D:\Programming\Python\Projects\Live Weather Monitor\Values.xlsx") 
+          wb_obj.save("Values.xlsx") 
 
           print(f'Location: \t{values[0]}')
           print(f'Humidity: \t{values[1]}')
@@ -120,7 +120,7 @@ def main():
           # Update Temperature
           sheet.cell(row = i+1, column = 2).value =  toFah(values[2])
           # Save to file
-          wb_obj.save("D:\Programming\Python\Projects\Live Weather Monitor\Values.xlsx")
+          wb_obj.save("Values.xlsx")
 
           print(f'Location: \t{values[0]}')
           print(f'Humidity: \t{values[1]}')
