@@ -12,7 +12,12 @@ This application is a live weather displaying application using APIs and excel t
     - Humidity
     - Option to change temperature (°C/°F)
     - Option to stop updating the temperature value(0/1)
-    
+
+- Generate your API access key by registering at  "http://api.weatherstack.com/current" and paste that key at line 41.<br>
+__params = {
+  'access_key': 'xxxxxxxxxxxxxxxxxxxxxxxxxxxx',
+  'query': loc
+  }
     
 ### How to Run?
 
